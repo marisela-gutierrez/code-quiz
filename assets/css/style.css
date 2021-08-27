@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+main {
+  vertical-align: middle;
+}
+main p {
+  font-size: 2vw;
+}
+
+header {
+  padding: 2%;
+}
+
+header button {
+  margin-left: auto;
+  text-decoration: none;
+  color:red;
+  font-size: 1.5vw;
+  background-color: white;
+  border: none;
+  outline: none;
+  
+}
+
+header h4 {
+  display: inline-block;
+}
+
+.timer {
+  font-size: 1.5vw;
+  text-align: right;
+  margin-left: 80%;
+  }
+
+h2 {
+  text-align: center;
+
+}
+
+.start-button {
+  border-radius: 10%;
+  color:blue;
+  font-size: 1.8vw;
+  background-color: gray;
+  outline: none;
+}
+
+.high-scores {
+  display: flex; 
+  flex-direction: column-reverse;
+}
+
+.button {
+  border-radius: 10vw;
+  color: seashell;
+  font-size: 1.8vw;
+  background-color:grey;
+  width: 40%;
+  outline: none;
+}
+
+
+.scores-button {
+  align-self: center;
+  width: 20%;
+  margin-top: 2vw;
+}
+
+.link:active {
+  color:red;
+}
+
+
+table {
+  margin-left: 30%;
+  table-layout: fixed;
+  width: 40%;
+  border-collapse: collapse;
+  font-size: 1.5vw;
+  text-align: center;
+}
+
+.form {
+  font-size: large;
+}
+
+.form input{
+  font-size: large;
+  width: 6%;
+}
+
+table th {
+  background-color: blue;
+}
+
+tbody tr:nth-child(odd){
+  background-color: blue;
+}
+tbody tr:nth-child(even){
+  background-color:blue;
+}
+
+.start-screen {
+  padding: 6%;
+  text-align: center;
+  height: 20%;
+  margin-top: auto;
+}
+
+.start-screen ul li {
+  padding-top: 2%;
+  text-align: center;
+  list-style: none;
+}
+
+.start-screen h1 {
+  font-size: 2.5vw;
+}
+
+
+footer {
+  padding-bottom: 30%;
+  width: 60%;
+  margin-left: 20%;
+}
+
+footer h1 {
+  color: blue;
+  text-align: center;
+  font-style: italic;
+  border-top: 5px solid blue;
+}
