@@ -170,3 +170,79 @@ function checkAnswer(answer){
 }
 
 
+function saveScoreForm(num){
+  if(score < 1){
+      divScreen.innerHTML = '<div id="start-screen" class="start-screen"><h1>LOSER!</h1><button id="try-again" class="hover start-button" type="submit">Try Again</button>';
+  }
+  else {
+  var submitButton = '<button id="submit" class="hover start-button" type="submit" />';
+  var name = '<input id ="inicials" type="text" name="name" placeholder="" />'
+  divScreen.innerHTML = '<div id = "submit-score" class="start-screen form"><h1>All Done!</h1><h3>Your final Score is '+ num +'!</h3><h3>Enter inicials:'+ name + '</h3>' + submitButton + 'Submit</button></div>' 
+  } 
+}
+
+var scoreStorage = function (){
+  var scoreEl = {
+      score:0,
+      inicials:"",
+  }
+  var check;
+  var inicials = document.getElementById("inicials").value;
+  if(inicials){
+  var ini = inicials.toUpperCase();
+  scoreEl.score = score;
+  scoreEl.inicials = ini;
+  arrayScores.push(scoreEl);
+  localStorage.setItem("scores",JSON.stringify(arrayScores));
+  check = true;
+  }
+ 
+  else{
+      alert("You forgot to type your inicials!");
+      check = false;
+  }
+  return check;
+}
+
+
+function compare(a, b) {
+  var comparison = 0;
+  if (a.score < b.score) {
+    comparison = 1;
+  } else if (a.score > b.score) {
+    comparison = -1;
+  }
+  return comparison;
+}
+
+
+function showHighScores(){
+  var goBackButton = '<button id="go-back" class="hover start-button scores-button" type="submit" />';
+  var cleanScores = '<button id="clean" class="hover start-button scores-button" type="submit" />';
+  var tableScores = '<table><tr><th>Name Inicials</th><th>Score</th></tr>';
+  var readScores = localStorage.getItem("scores");
+  var parseScores = JSON.parse(readScores);
+  
+  if (!parseScores){
+      tableEls = "<h2>No scores saved!</h2>"
+  }
+ 
+  else if(parseScores.length > 1){
+  parseScores.sort(compare);
+   var tableEls = "";
+   parseScores.forEach(element => {
+  tableEls = tableEls + "<tr><td>"+ element.inicials + "</td><td>" + element.score + "</td></tr>"  
+  });
+  }  
+  else{
+      tableEls = "<tr><td>"+ parseScores[0].inicials + "</td><td>" + parseScores[0].score + "</td></tr>"
+  }
+  footer.innerHTML = "";
+  divScreen.innerHTML = '<div id = "high-scores" class="start-screen"><h1>High Scores</h1></div><div class = "high-scores">'+ tableScores + tableEls + goBackButton + 'Go Back</button>' + cleanScores + 'Clean Scores</button></div>';
+}
+
+
+if(endLoop === false){
+  divScreen.addEventListener("click",buttonHandler);
+  header.addEventListener("click", buttonHandler);
+}
