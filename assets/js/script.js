@@ -145,3 +145,28 @@ function countDown(){
 }, 1000);
 }
 
+function displayQuestion(i){
+
+  btnA =' <button id="a" class="hover button" type="button">'+ quizArray[i].a + '</button>'
+  btnB =' <button id="b" class="hover button" type="button">'+ quizArray[i].b + '</button>'
+  btnC =' <button id="c" class="hover button" type="button">'+ quizArray[i].c + '</button>'
+  btnD =' <button id="d" class="hover button" type="button">'+ quizArray[i].d + '</button>'
+
+ divScreen.innerHTML = '<div id = "start-screen" class="start-screen"><h1>'+ quizArray[i].q + "</h1><ul><li>"+ btnA + "</li><li>"+ btnB + "</li><li>"+ btnC + "</li><li>"+ btnD + "</li></ul></div>";
+ a
+}
+
+function checkAnswer(answer){
+
+   if(answer.id != quizArray[index-1].correctAnswer){
+     timeLeft = timeLeft - 10;
+     footer.innerHTML = "<h1>WRONG</h1>";
+      
+  }
+  else if(answer.id === quizArray[index-1].correctAnswer){
+      footer.innerHTML = "<h1>CORRECT</h1>";
+  }
+   
+}
+
+
